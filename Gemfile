@@ -9,7 +9,10 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
 
+# Use materialize-sass for styling
 gem 'materialize-sass'
+# Use devise to handle user authentication
+gem 'devise'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
