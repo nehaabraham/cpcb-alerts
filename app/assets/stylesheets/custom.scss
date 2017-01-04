@@ -30,7 +30,8 @@ main {
 }
 
 .alert{
-  padding: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   font-size: 1.2em;
 }
 
@@ -40,4 +41,12 @@ main {
 
 .alert-notice {
   background-color: #26a69a;
+}
+
+.alert-danger{
+  background-color: #ef5350;
+}
+
+.alert-success{
+  background-color: #66bb6a;
 }

@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col m8 offset-m2">
+
+    <h3 align="center">Scheduled Events</h3>
+
+    <% if user_signed_in? and current_user.admin? %>
+      <div align="center">
+        <%= link_to "Create Event", new_event_path, class: "waves-effect waves-light btn" %>
+      </div>
+    <% end %>
+    <br />
+
+    <% @events.each do |event | %>
+      <div class="card text-center">
+        <div class="card-content">
+          <span class="card-title"><%= event.title %></span>
+          <div>
+            <%= event.date.to_formatted_s(:long_ordinal) %><br />
+            <%= event.time.to_formatted_s(:time) %><br />
+            <%= event.location %><br />
+
+            <br />
+          </div>
+          <div class="card-action">
+            <%= link_to "View", event_path(event.id) %>
+            <% if current_user.admin? %>
+              <%= link_to "Delete", event_path(event.id), method: :delete, data: {confirm: "Are you sure you want to delete #{event.title}?"} %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

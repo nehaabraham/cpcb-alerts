@@ -1,0 +1,31 @@
+<%= form_for(@event, role: "form") do |f| %>
+  <div class="input-field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title, autofocus: true %>
+  </div>
+
+  <div class="row">
+    <div class="input-field col m6">
+      <%= f.label :date %><br />
+      <%= f.date_field :date %>
+    </div>
+
+    <div class="input-field col m6">
+      <%= f.label :time %><br />
+      <%= f.time_field :time %>
+    </div>
+  </div>
+
+  <div class="input-field">
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+  </div>
+
+  <div class="input-field">
+    <%= f.label :description %>
+    <%= f.text_area :description, rows: "10" %>
+
+  <div class="actions">
+    <%= f.submit class: "btn waves-effect waves-light" %>
+  </div>
+<% end %>

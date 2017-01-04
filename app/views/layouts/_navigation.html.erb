@@ -1,6 +1,7 @@
 <!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content">
   <% if user_signed_in? %>
+    <li><%= link_to "Profile", edit_user_registration_path %>
     <li class="divider"></li>
     <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
   <% else %>
@@ -11,9 +12,11 @@
   <div class="nav-wrapper">
     <%= link_to "cpcb alerts", root_path, class: 'brand-logo' %>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><%= link_to "Home", root_path %></li>
-      <!-- Dropdown Trigger -->
-      <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Account<i class="material-icons right"></i></a></li>
+      <% if user_signed_in? %>
+        <li><%= link_to "Events", events_path %>
+        <!-- Dropdown Trigger -->
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Account<i class="material-icons right"></i></a></li>
+      <% end %>
     </ul>
   </div>
 </nav>

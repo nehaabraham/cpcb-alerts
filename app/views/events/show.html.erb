@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col m6 offset-m3">
+    <h3 align="center"><%= @event.title %></h3>
+    <% if user_signed_in? and current_user.admin? %>
+      <div align="center">
+        <%= link_to "Edit", edit_event_path(@event.id), class: "waves-effect waves-light btn" %><br />
+        <br />
+      </div>
+    <% end %>
+    <br />
+    <div>
+      <b>Date: </b><%= @event.date.to_formatted_s(:long_ordinal) %><br />
+      <b>Time: </b><%= @event.time.to_formatted_s(:time) %><br />
+      <b>Location: </b><%= @event.location %><br />
+      <b>Description: </b><%= @event.description %><br />
+    </div>
+    <br />
+    <br />
+    <% if user_signed_in? and current_user.admin? %>
+      <div align="center">
+        <%= link_to "Delete", event_path(@event.id), method: :delete, class: "waves-effect waves-light btn red lighten-1", data: {confirm: "Are you sure you wan tto delete #{@event.title}?"} %>
+      </div>
+    <% end %>
+  </div>
+</div>
