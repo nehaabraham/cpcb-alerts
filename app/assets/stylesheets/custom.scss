@@ -1,0 +1,21 @@
+nav{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* sticky footer */
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+  padding-top: 15px;
+}
+/* end sticky footer */
+
+.text-center{
+  text-align: center;
+}

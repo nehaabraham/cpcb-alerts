@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CpcbAlerts</title>
+    <title>CPCB Alerts</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,12 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header><%= render 'layouts/navigation' %></header>
+    <main>
+      <div class="container">
+        <%= yield %>
+      </div>
+    </main>
+    <footer><%= render 'layouts/footer' %></footer>
   </body>
 </html>
