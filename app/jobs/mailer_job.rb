@@ -1,0 +1,3 @@
+class MailerJob < ApplicationJob
+
+end

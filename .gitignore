@@ -17,5 +17,7 @@
 !/log/.keep
 !/tmp/.keep
 
+cpcb-alerts-be7ca0003e02.json
+
 # Ignore Byebug command history file.
 .byebug_history
