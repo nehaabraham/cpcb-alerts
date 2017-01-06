@@ -9,12 +9,14 @@
     <% end %>
     <br />
     <div>
-      <b>Date: </b><%= @event.date.to_formatted_s(:long_ordinal) %><br />
-      <b>Time: </b><%= @event.time.to_formatted_s(:time) %><br />
+      <b>Date and Time: </b><%= @event.datetime.to_formatted_s(:long_ordinal) %><br />
       <b>Location: </b><%= @event.location %><br />
       <b>Description: </b><%= @event.description %><br />
     </div>
     <br />
+    <div align="center">
+      <%= link_to "All Events", events_path %>
+    </div>
     <br />
     <% if user_signed_in? and current_user.admin? %>
       <div align="center">

@@ -15,8 +15,7 @@
         <div class="card-content">
           <span class="card-title"><%= event.title %></span>
           <div>
-            <%= event.date.to_formatted_s(:long_ordinal) %><br />
-            <%= event.time.to_formatted_s(:time) %><br />
+            <%= event.datetime.to_formatted_s(:long_ordinal) %><br />
             <%= event.location %><br />
 
             <br />

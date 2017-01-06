@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+
+  </head>
+  <body>
+    <div class="container">
+      <h3>Upcoming Event: <%= @event.title %></h1>
+        <div>
+          <b><%= "#{@event.datetime.to_formatted_s(:long_ordinal)}" %></b>
+          <br />
+          <b><%= @event.location %></b>
+          <p class="flow-text"><%= @event.description %></p>
+        </div>
+    </div>
+  </body>
+</html>

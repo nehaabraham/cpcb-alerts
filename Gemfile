@@ -15,13 +15,9 @@ gem 'materialize-sass'
 gem 'devise'
 # Use for date validations
 gem 'validates_timeliness'
-# Use to schedule jobs
-gem 'resque'
-gem 'resque_mailer'
-gem 'resque-scheduler'
 
 # Use Puma as the app server
-gem 'puma', '~> 3.0'
+gem 'puma'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

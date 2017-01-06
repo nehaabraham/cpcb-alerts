@@ -1,3 +1,0 @@
-class MailerJob < ApplicationJob
-
-end
