@@ -4,10 +4,12 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Welcome to example.com, <%= @user.email %></h1>
-    <p>
-      To login to the site, just follow this link: <%= @url %>.
-    </p>
-    <p>Thanks for joining and have a great day!</p>
+    <h3 align="center">Welcome to CPCB Alerts<h3>
+    <div>
+      If you would like to add your phone number to receive SMS reminders prior to an event, please <%= link_to "click this link.", edit_user_registration_path(@user.id) %>
+    </div>
+    <div>
+      Thanks for joining!
+    </div>
   </body>
 </html>
