@@ -15,6 +15,13 @@ gem 'materialize-sass'
 gem 'devise'
 # Use for date validations
 gem 'validates_timeliness'
+# Security
+gem 'figaro'
+# Schedule Tasks
+gem 'delayed_job_active_record'
+gem 'daemons'
+# Use Twilo for SMS messages
+gem 'twilio-ruby'
 
 # Use Puma as the app server
 gem 'puma'
@@ -60,6 +67,7 @@ end
 group :production do
   gem 'pg'
   gem 'rails_12factor'
+  gem 'workless'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -1,14 +1,15 @@
+
 class Event < ApplicationRecord
   validates :title, presence: true
   validates :datetime, presence: true
   validates :location, presence: true
   validates :description, presence: true
   validates_datetime :datetime, :on_or_after => DateTime.now
-  after_save :send_reminder
+  after_create :send_email_reminder
 
   private
 
-    def send_reminder
+    def send_email_reminder
       # if the event is a week or less away, send the email immediately
       if(self.datetime <= (DateTime.now + 1.week))
         AppMailer.event_reminder(self).deliver
@@ -17,4 +18,25 @@ class Event < ApplicationRecord
         AppMailer.event_reminder(self).deliver_later(wait_until: self.datetime - 1.week)
       end
     end
+
+    def send_sms_reminder
+      @twilio_number = ENV['TWILIO_NUMBER']
+      @client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
+      @users = get_subscribed_users
+      @users.each do |user|
+        reminder = "DCB Reminder: Don't forget! #{self.title} on #{self.datetime.to_formatted_s(:long_ordinal)} at #{self.location}"
+        message = @client.account.messages.create(
+          :from => @twilio_number,
+          :to => user.phone,
+          :body => reminder,
+        )
+      end
+    end
+
+    def get_subscribed_users
+      @users = User.where(:subscribed_to_sms => true)
+    end
+
+    handle_asynchronously :send_sms_reminder, :run_at => Proc.new { self.datetime - 1.day }
+
 end

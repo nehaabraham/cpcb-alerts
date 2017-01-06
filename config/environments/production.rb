@@ -21,8 +21,8 @@ Rails.application.configure do
     address:              'smtp.pitt.edu',
     port:                 587,
     domain:               'pitt.edu',
-    user_name:            'dcb',
-    password:             'dm29b74$',
+    user_name:            ENV['USER_NAME'],
+    password:             ENV['PWD'],
     authentication:       'plain',
     enable_starttls_auto: true  }
 
