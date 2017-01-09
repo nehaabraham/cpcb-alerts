@@ -6,6 +6,7 @@ class Event < ApplicationRecord
   validates :description, presence: true
   validates_datetime :datetime, :on_or_after => DateTime.now
   after_create :send_email_reminder
+  after_create :send_sms_reminder
 
   private
 
@@ -32,11 +33,10 @@ class Event < ApplicationRecord
         )
       end
     end
+    handle_asynchronously :send_sms_reminder, :run_at => Proc.new { self.datetime - 1.day }
 
     def get_subscribed_users
       @users = User.where(:subscribed_to_sms => true)
     end
-
-    handle_asynchronously :send_sms_reminder, :run_at => Proc.new { self.datetime - 1.day }
 
 end
