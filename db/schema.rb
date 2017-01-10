@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170106202934) do
+ActiveRecord::Schema.define(version: 20170109150234) do
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
@@ -33,7 +33,8 @@ ActiveRecord::Schema.define(version: 20170106202934) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.datetime "datetime"
+    t.datetime "start"
+    t.datetime "end"
   end
 
   create_table "users", force: :cascade do |t|

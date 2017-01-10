@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    #@events = Event.where('datetime > ? ', DateTime.now).order('time ASC')
+    #@events = Event.where('start > ? ', DateTime.now).order('time ASC')
     @events = Event.all
   end
 
@@ -57,7 +57,7 @@ class EventsController < ApplicationController
   private
 
     def event_params
-      params.require(:event).permit(:title, :datetime, :location, :description)
+      params.require(:event).permit(:title, :start, :end, :location, :description)
     end
 
     def set_event

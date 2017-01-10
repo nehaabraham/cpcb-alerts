@@ -3,7 +3,11 @@ require 'test_helper'
 class EventTest < ActiveSupport::TestCase
 
   def setup
-    @event = Event.new(title: "Test event", date: Date.new(2018, 2, 14), time: Time.now.tomorrow, location: "Fishbowl", description: "Test description for text event")
+    @event = Event.new(title: "Test event",
+      start: DateTime.now,
+      end: DateTime.now + 1.day,
+      location: "Fishbowl",
+      description: "Test description for text event")
   end
 
   test "event should be valid" do
@@ -16,12 +20,12 @@ class EventTest < ActiveSupport::TestCase
   end
 
   test "date should be present" do
-    @event.date = nil
+    @event.start = nil
     assert_not @event.valid?
   end
 
-  test "time should be present" do
-    @event.time = nil
+  test "end time should be present" do
+    @event.end = nil
     assert_not @event.valid?
   end
 
@@ -36,7 +40,12 @@ class EventTest < ActiveSupport::TestCase
   end
 
   test "event date should be after current date" do
-    @event.date = Date.new(2016,1,1)
+    @event.start = DateTime.now - 1.hour
+    assert_not @event.valid?
+  end
+
+  test "event end should be after event start" do
+    @event.end = @event.start - 1.week
     assert_not @event.valid?
   end
 

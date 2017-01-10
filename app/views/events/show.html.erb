@@ -9,7 +9,7 @@
     <% end %>
     <br />
     <div>
-      <b>Date and Time: </b><%= @event.datetime.to_formatted_s(:long_ordinal) %><br />
+      <b>Date and Time: </b><%= @event.start.to_formatted_s(:long_ordinal) %><br />
       <b>Location: </b><%= @event.location %><br />
       <b>Description: </b><%= @event.description %><br />
     </div>

@@ -1,7 +1,7 @@
 <div class="container">
   <h3>Upcoming Event: <%= @event.title %></h3>
     <div>
-      <b><%= "#{@event.datetime.to_formatted_s(:long_ordinal)}" %></b>
+      <b><%= "#{@event.start.to_formatted_s(:long_ordinal)}" %></b>
       <br />
       <b><%= @event.location %></b>
       <p class="flow-text"><%= @event.description %></p>
