@@ -8,10 +8,18 @@
 
       <i>If you would like to leave a field as is, do not change it</i>
       <br />
+      <br />
 
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true %>
+      <div class="row">
+        <div class="input-field col m6">
+          <%= f.label :email %>
+          <%= f.email_field :email, autofocus: true %>
+        </div>
+
+        <div class="input-field col m6">
+          <%= f.check_box :subscribed_to_email %>
+          <%= f.label :subscribed_to_email, "Email Notifications" %>
+        </div>
       </div>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -19,26 +27,18 @@
       <% end %>
 
       <div class="row">
-        <div class="field col m6">
-          <%= f.label :phone %></i>
+        <div class="input-field col m6">
+          <%= f.label :phone %>
           <%= f.text_field :phone %>
         </div>
 
-        <div class="field col m6">
-          <div class="switch">
-            <%= f.label :subscribed_to_sms, "Toggle SMS Subscription" %><br />
-            <br />
-            <label>
-              <b>Unsubscribed</b>
-              <input type="checkbox">
-              <span class="lever"></span>
-              <b>Subscribed</b>
-            </label>
-          </div>
+        <div class="input-field col m6">
+          <%= f.check_box :subscribed_to_sms %>
+          <%= f.label :subscribed_to_sms, "SMS Notifications" %>
         </div>
       </div>
 
-      <div class="field">
+      <div class="input-field">
         <%= f.label :password %><br />
         <%= f.password_field :password, autocomplete: "off" %>
         <% if @minimum_password_length %>
@@ -47,12 +47,12 @@
         <% end %>
       </div>
 
-      <div class="field">
+      <div class="input-field">
         <%= f.label :password_confirmation %><br />
         <%= f.password_field :password_confirmation, autocomplete: "off" %>
       </div>
 
-      <div class="field">
+      <div class="input-field">
         <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
         <%= f.password_field :current_password, autocomplete: "off" %>
       </div>
