@@ -1,6 +1,4 @@
 class RegistrationsController < Devise::RegistrationsController
-  validates :subscribed_to_sms, presence: true
-  validates :subscribed_to_email, presence: true
 
   private
 
