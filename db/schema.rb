@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170109150234) do
+ActiveRecord::Schema.define(version: 20170112133647) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
@@ -35,6 +41,7 @@ ActiveRecord::Schema.define(version: 20170109150234) do
     t.datetime "updated_at",  null: false
     t.datetime "start"
     t.datetime "end"
+    t.integer  "category_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,6 +60,7 @@ ActiveRecord::Schema.define(version: 20170109150234) do
     t.boolean  "admin"
     t.string   "phone"
     t.boolean  "subscribed_to_sms",      default: true
+    t.boolean  "subscribed_to_email",    default: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

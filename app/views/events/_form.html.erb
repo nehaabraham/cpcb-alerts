@@ -25,7 +25,15 @@
 
   </div>
 
-
+  <div class="input-field">
+    <label>Event Category</label><br />
+    <% Category.all.each do |category| %>
+      <%= f.radio_button :category, category.id %>
+      <%= label :category, category.name %>
+    <% end %>
+  </div>
+  <br />
+  <br />
 
   <div class="input-field">
     <%= f.label :location %>
@@ -35,6 +43,7 @@
   <div class="input-field">
     <%= f.label :description %>
     <%= f.text_area :description, rows: "10" %>
+  </div>
 
   <div class="actions">
     <%= f.submit class: "btn waves-effect waves-light" %>

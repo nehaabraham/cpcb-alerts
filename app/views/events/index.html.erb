@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col m8 offset-m2">
+  <div class="col m6 offset-m3">
 
     <h3 align="center">Scheduled Events</h3>
 
@@ -13,16 +13,18 @@
     <% @events.each do |event | %>
       <div class="card text-center">
         <div class="card-content">
-          <span class="card-title"><%= event.title %></span>
+          <span class="card-title"><%= event.title %></span><br />
+          <div class="chip"><%= event.category.name %></div>
+          <br /><br />
           <div>
             <%= event.start.to_formatted_s(:long_ordinal) %><br />
             <%= event.location %><br />
-
             <br />
           </div>
           <div class="card-action">
             <%= link_to "View", event_path(event.id) %>
             <% if current_user.admin? %>
+              <%= link_to "Edit", edit_event_path(event.id) %>
               <%= link_to "Delete", event_path(event.id), method: :delete, data: {confirm: "Are you sure you want to delete #{event.title}?"} %>
             <% end %>
           </div>

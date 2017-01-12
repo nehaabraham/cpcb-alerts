@@ -12,6 +12,8 @@
       <b>Date and Time: </b><%= @event.start.to_formatted_s(:long_ordinal) %><br />
       <b>Location: </b><%= @event.location %><br />
       <b>Description: </b><%= @event.description %><br />
+      <b>Category: </b><%= Category.find(@event.category_id).name %>
+
     </div>
     <br />
     <div align="center">

@@ -4,7 +4,7 @@ class EventsController < ApplicationController
 
   def index
     #@events = Event.where('start > ? ', DateTime.now).order('time ASC')
-    @events = Event.all
+    @events = Event.all.order(:start)
   end
 
   def show
@@ -47,20 +47,21 @@ class EventsController < ApplicationController
     end
   end
 
-  def require_admin
-    if !current_user.admin?
-      flash[:notice] = "You do not have the admin rights to perform that action"
-      redirect_to events_path
-    end
-  end
 
   private
 
     def event_params
-      params.require(:event).permit(:title, :start, :end, :location, :description)
+      params.require(:event).permit(:title, :start, :end, :location, :description, :category_id)
     end
 
     def set_event
       @event = Event.find(params[:id])
+    end
+
+    def require_admin
+      if !current_user.admin?
+        flash[:notice] = "You do not have the admin rights to perform that action"
+        redirect_to events_path
+      end
     end
 end

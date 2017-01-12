@@ -3,10 +3,11 @@
     <%= link_to "cpcb alerts", root_path, class: 'brand-logo' %>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <% if user_signed_in? %>
-        <li><%= link_to "Events", events_path %>
-          <li><%= link_to "Profile", edit_user_registration_path %>
-          <li class="divider"></li>
-          <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to "Events", events_path %></li>
+        <li><%= link_to "Categories", categories_path %></li>
+        <li><%= link_to "Profile", edit_user_registration_path %></li>
+        <li class="divider"></li>
+        <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
       <% end %>
     </ul>
   </div>

@@ -6,8 +6,9 @@ class AppMailer < ApplicationMailer
   end
 
   def event_reminder(event)
+    @users = User.where(:subscribed_to_email => true)
     @event = event
-    mail(to: User.pluck(:email),
+    mail(to: @users.pluck(:email),
         subject: "Reminder: #{@event.title}")
   end
 
