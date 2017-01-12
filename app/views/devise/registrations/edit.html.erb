@@ -1,7 +1,7 @@
 <h2 align="center">Edit <%= resource_name.to_s.humanize %></h2>
 
 <div class="row">
-  <div class="col m6 offset-m3">
+  <div class="col m8 offset-m2">
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= devise_error_messages! %>
@@ -38,6 +38,20 @@
         </div>
       </div>
 
+      <div class="row input-field">
+        <label>Subscribed Lists</label><br />
+        <br />
+        <%= f.check_box :cpcb_seminars %>
+        <%= f.label :cpcb_seminars, "CPCB Seminars" %>
+        <%= f.check_box :csb_seminars %>
+        <%= f.label :csb_seminars, "CSB Seminars" %>
+        <%= f.check_box :faculty_meetings %>
+        <%= f.label :faculty_meetings, "Faculty Meetings" %>
+        <%= f.check_box :miscellaneous %>
+        <%= f.label :miscellaneous, "Miscellaneous" %>
+      </div>
+      <br />
+      
       <div class="input-field">
         <%= f.label :password %><br />
         <%= f.password_field :password, autocomplete: "off" %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170112133647) do
+ActiveRecord::Schema.define(version: 20170112202723) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -61,6 +61,10 @@ ActiveRecord::Schema.define(version: 20170112133647) do
     t.string   "phone"
     t.boolean  "subscribed_to_sms",      default: true
     t.boolean  "subscribed_to_email",    default: true
+    t.boolean  "faculty_meetings",       default: true
+    t.boolean  "cpcb_seminars",          default: true
+    t.boolean  "csb_seminars",           default: true
+    t.boolean  "miscellaneous",          default: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
