@@ -2,12 +2,6 @@
   <div class="col m6 offset-m3">
 
     <h3 align="center">Event Categories</h3>
-
-    <% if user_signed_in? and current_user.admin? %>
-      <div align="center">
-        <%= link_to "Create Category", new_category_path, class: "waves-effect waves-light btn" %>
-      </div>
-    <% end %>
     <br />
 
     <% @categories.each do |category | %>
