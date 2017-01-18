@@ -27,10 +27,6 @@
 
   <div class="input-field">
     <label>Event Category</label><br />
-    <!-- <% Category.all.each do |category| %>
-      <%= f.radio_button :category, category.id %>
-      <%= f.label category.name %>
-    <% end %> -->
     <%= f.collection_radio_buttons :category_id, Category.all, :id, :name %>
   </div>
 
