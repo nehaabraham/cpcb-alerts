@@ -56,7 +56,7 @@ class Event < ApplicationRecord
       when 2
         @users = User.where(:subscribed_to_sms => true, :cpcb_seminars => true)
       when 3
-        @users = User.where(:subscribed_to_sms => true, :miscellanous => true)
+        @users = User.where(:subscribed_to_sms => true, :miscellaneous => true)
       when 4
         @users = User.where(:subscribed_to_sms => true, :csb_seminars => true)
       else

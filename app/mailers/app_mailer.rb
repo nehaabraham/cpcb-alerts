@@ -21,7 +21,7 @@ class AppMailer < ApplicationMailer
       when 2
         @users = User.where(:subscribed_to_email => true, :cpcb_seminars => true)
       when 3
-        @users = User.where(:subscribed_to_email => true, :miscellanous => true)
+        @users = User.where(:subscribed_to_email => true, :miscellaneous => true)
       when 4
         @users = User.where(:subscribed_to_email => true, :csb_seminars => true)
       else
