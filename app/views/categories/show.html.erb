@@ -1,12 +1,6 @@
 <div class="row">
   <div class="col m8 offset-m2">
     <h3 align="center"><%= @category.name %></h3>
-    <% if user_signed_in? and current_user.admin? %>
-      <div align="center">
-        <%= link_to "Edit Category", edit_category_path(@category.id), class: "waves-effect waves-light btn" %><br />
-        <br />
-      </div>
-    <% end %>
     <br />
     <% @events.each do |event| %>
       <div class="card text-center">
@@ -30,10 +24,5 @@
       <%= link_to "All Events", events_path %>
     </div>
     <br />
-    <% if user_signed_in? and current_user.admin? %>
-      <div align="center">
-        <%= link_to "Delete", event_path(@category.id), method: :delete, class: "waves-effect waves-light btn red lighten-1", data: {confirm: "Are you sure you want to delete #{@category.name} and all associated events?"} %>
-      </div>
-    <% end %>
   </div>
 </div>
