@@ -13,6 +13,7 @@ gem 'rails', '~> 5.0.1'
 gem 'materialize-sass'
 # Use devise to handle user authentication
 gem 'devise'
+gem 'devise_invitable'
 # Use for date validations
 gem 'validates_timeliness'
 # Security

@@ -12,6 +12,18 @@ Rails.application.configure do
   # Show full error reports.
   config.consider_all_requests_local = true
 
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.perform_caching = false
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.pitt.edu',
+    port:                 587,
+    domain:               'pitt.edu',
+    user_name:            'dcb',
+    password:             'dm29b74$',
+    authentication:       'plain',
+    enable_starttls_auto: true  }
+
   # Enable/disable caching. By default caching is disabled.
   if Rails.root.join('tmp/caching-dev.txt').exist?
     config.action_controller.perform_caching = true

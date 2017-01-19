@@ -4,10 +4,11 @@ class User < ApplicationRecord
   validates :subscribed_to_sms, presence: true
   validates :subscribed_to_email, presence: true
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :confirmable,:recoverable, :rememberable, :trackable,
+         :validatable
   validates :phone, format: { with: /\A(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}\z/ }, :allow_blank => true, :if => :subscribed
 
-  after_create :send_welcome_email
+  #after_create :send_welcome_email
   before_save :format_phone
 
   private
