@@ -24,11 +24,11 @@ class Event < ApplicationRecord
     def send_email_reminder
       # if the event is a week or less away, send the email immediately
       if(self.start <= (DateTime.now + 1.week))
-        AppMailer.event_reminder(self).deliver
+        AppMailer.event_reminder(self, 'now').deliver
       # if the event is more than a week away, send the reminder email one week prior to the event
       else
-        AppMailer.event_reminder_week(self).deliver_later(wait_until: self.start - 1.week)
-        AppMailer.event_reminder_day(self).deliver_later(wait_until: self.start - 1.day)
+        AppMailer.event_reminder(self, 'week').deliver_later(wait_until: self.start - 1.week)
+        AppMailer.event_reminder(self, 'day').deliver_later(wait_until: self.start - 1.day)
       end
     end
 

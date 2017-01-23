@@ -5,25 +5,16 @@ class AppMailer < ApplicationMailer
     mail(to: @user.email, subject: 'Welcome to CPCB Alerts')
   end
 
-  def event_reminder(event)
+  def event_reminder(event, schedule)
     @event = event
     get_email_list(@event.category_id)
-    mail(to: @users.pluck(:email),
-        subject: "Reminder: #{@event.title}")
-  end
-
-  def event_reminder_week(event)
-    @event = event
-    get_email_list(@event.category_id)
-    filter_subscribers('week')
-    mail(to: @users.pluck(:email),
-        subject: "Reminder: #{@event.title}")
-  end
-
-  def event_reminder_day(event)
-    @event = event
-    get_email_list(@event.category_id)
-    filter_subscribers('day')
+    case schedule
+    when 'week'
+      filter_subscribers('week')
+    when 'day'
+      filter_subscribers('day')
+    else
+      break
     mail(to: @users.pluck(:email),
         subject: "Reminder: #{@event.title}")
   end
@@ -48,9 +39,9 @@ class AppMailer < ApplicationMailer
     def filter_subscribers(subscription_option)
       case subscription_option
       when 'day'
-        @users = @users.where(:subscribed_to_email => true, :day_before_email => true)
+        @users = @users.where(:day_before_email => true)
       when 'week'
-        @users = @users.where(:subscribed_to_email => true, :week_before_email => true)
+        @users = @users.where(:week_before_email => true)
       else
         @users
       end
