@@ -1,7 +1,7 @@
 <h2 align="center">Edit Profile</h2>
 
 <div class="row">
-  <div class="col m8 offset-m2">
+  <div class="col m10 offset-m1">
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= devise_error_messages! %>
@@ -16,8 +16,22 @@
         </div>
 
         <div class="input-field col m6">
-          <%= f.check_box :subscribed_to_email %>
-          <%= f.label :subscribed_to_email, "Email Notifications" %>
+          <div class="row">
+            <div>
+              <%= f.check_box :subscribed_to_email %>
+              <%= f.label :subscribed_to_email, "Email Notifications" %>
+            </div>
+          </div>
+          <div id="email-options">
+            <div class="row">
+              &emsp;<%= f.check_box :day_before_email %>
+              <%= f.label :day_before_email, "1 day prior" %>
+            </div>
+            <div class="row">
+              &emsp;<%= f.check_box :week_before_email %>
+              <%= f.label :week_before_email, "1 week prior" %>
+            </div>
+          </div>
         </div>
       </div>
 

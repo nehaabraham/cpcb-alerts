@@ -1,12 +1,10 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  validates :subscribed_to_sms, presence: true
-  validates :subscribed_to_email, presence: true
   devise :database_authenticatable, :registerable,
          :confirmable,:recoverable, :rememberable, :trackable,
          :validatable
-  validates :phone, format: { with: /\A(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}\z/ }, :allow_blank => true, :if => :subscribed
+  validates :phone, format: { with: /\A(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}\z/ }, :allow_blank => true, :if => :subscribed_to_text
 
   #after_create :send_welcome_email
   before_save :format_phone
@@ -23,7 +21,7 @@ class User < ApplicationRecord
       end
     end
 
-    def subscribed
+    def subscribed_to_text
       self.subscribed_to_sms
     end
 end
