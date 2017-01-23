@@ -10,9 +10,7 @@ class Event < ApplicationRecord
   validates :category_id, presence: true
   validates_datetime :start, :on_or_after => DateTime.now
   validates_datetime :end, :on_or_after => :start
-  # sending reminders after creation
-  after_create :send_email_reminder
-  after_create :send_sms_reminder
+  after_save :check_if_ready
 
 
   def when_to_run
@@ -21,17 +19,31 @@ class Event < ApplicationRecord
 
   private
 
+    # if event is ready to send to queue
+    # call scheduler functions
+    def check_if_ready
+      if(self.ready_to_send)
+        send_email_reminder
+        send_sms_reminder
+      end
+    end
+
     def send_email_reminder
-      # if the event is a week or less away, send the email immediately
+      # if the event is a week or less away, send the
+      # email immediately
       if(self.start <= (DateTime.now + 1.week))
         AppMailer.event_reminder(self, 'now').deliver
-      # if the event is more than a week away, send the reminder email one week prior to the event
+      # if the event is more than a week away, schedule the
+      # email to one week prior to the event and
+      # one day prior to the event
       else
         AppMailer.event_reminder(self, 'week').deliver_later(wait_until: self.start - 1.week)
         AppMailer.event_reminder(self, 'day').deliver_later(wait_until: self.start - 1.day)
       end
     end
 
+    # send an SMS reminder using Twilio
+    # use delayed_job to schedule the email
     def send_sms_reminder
       @twilio_number = ENV['TWILIO_NUMBER']
       @client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']

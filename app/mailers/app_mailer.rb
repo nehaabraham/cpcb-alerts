@@ -13,10 +13,9 @@ class AppMailer < ApplicationMailer
       filter_subscribers('week')
     when 'day'
       filter_subscribers('day')
-    else
-      break
+    end
     mail(to: @users.pluck(:email),
-        subject: "Reminder: #{@event.title}")
+        subject: "DCB Reminder: #{@event.title}")
   end
 
   private
