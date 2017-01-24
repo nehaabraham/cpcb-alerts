@@ -24,12 +24,16 @@
           </div>
           <div id="email-options">
             <div class="row">
-              &emsp;<%= f.check_box :day_before_email %>
-              <%= f.label :day_before_email, "1 day prior" %>
+              <div class="col m6">
+                <%= f.check_box :day_before_email %>
+                <%= f.label :day_before_email, "1 day prior" %>
+              </div>
             </div>
             <div class="row">
-              &emsp;<%= f.check_box :week_before_email %>
-              <%= f.label :week_before_email, "1 week prior" %>
+              <div class="col m6">
+                <%= f.check_box :week_before_email %>
+                <%= f.label :week_before_email, "1 week prior" %>
+              </div>
             </div>
           </div>
         </div>

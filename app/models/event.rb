@@ -5,9 +5,6 @@ class Event < ApplicationRecord
   validates :title, presence: true
   validates :start, presence: true
   validates :end, presence: true
-  validates :location, presence: true
-  validates :description, presence: true
-  validates :category_id, presence: true
   validates_datetime :start, :on_or_after => DateTime.now
   validates_datetime :end, :on_or_after => :start
   after_save :check_if_ready
@@ -23,12 +20,12 @@ class Event < ApplicationRecord
     # call scheduler functions
     def check_if_ready
       if(self.ready_to_send)
-        send_email_reminder
-        send_sms_reminder
+        schedule_email_reminder
+        schedule_sms_reminder
       end
     end
 
-    def send_email_reminder
+    def schedule_email_reminder
       # if the event is a week or less away, send the
       # email immediately
       if(self.start <= (DateTime.now + 1.week))
@@ -42,9 +39,9 @@ class Event < ApplicationRecord
       end
     end
 
-    # send an SMS reminder using Twilio
+    # schedule an SMS reminder using Twilio
     # use delayed_job to schedule the email
-    def send_sms_reminder
+    def schedule_sms_reminder
       @twilio_number = ENV['TWILIO_NUMBER']
       @client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
       @users = get_sms_list
@@ -58,7 +55,7 @@ class Event < ApplicationRecord
       end
     end
 
-    handle_asynchronously :send_sms_reminder, :run_at => Proc.new { |i| i.when_to_run }
+    handle_asynchronously :schedule_sms_reminder, :run_at => Proc.new { |i| i.when_to_run }
 
     # get list of users to send sms based on
     # event category and subscription settings

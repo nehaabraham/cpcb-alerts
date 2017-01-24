@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :confirmable,:recoverable, :rememberable, :trackable,
          :validatable
-  validates :phone, format: { with: /\A(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}\z/ }, :allow_blank => true, :if => :subscribed_to_text
+  validates :phone, format: { with: /\A(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}\z/ }, :if => :subscribed_to_text
 
   #after_create :send_welcome_email
   before_save :format_phone
