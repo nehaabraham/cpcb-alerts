@@ -79,7 +79,7 @@
 
       <div class="row">
         <div class="col m6 input-field">
-          <%= f.label :password %><br />
+          <%= f.label :password, "New Password" %><br />
           <%= f.password_field :password, autocomplete: "off" %>
           <% if @minimum_password_length %>
             <br />
@@ -88,7 +88,7 @@
         </div>
 
         <div class="col m6 input-field">
-          <%= f.label :password_confirmation %><br />
+          <%= f.label :password_confirmation, "Confirm New Password" %><br />
           <%= f.password_field :password_confirmation, autocomplete: "off" %>
         </div>
       </div>

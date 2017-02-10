@@ -7,7 +7,8 @@ class Event < ApplicationRecord
   validates :end, presence: true
   validates_datetime :start, :on_or_after => DateTime.now
   validates_datetime :end, :on_or_after => :start
-  after_save :check_if_ready
+  after_save :schedule_email_reminder
+  after_save :schedule_sms_reminder
 
 
   def when_to_run
@@ -16,42 +17,37 @@ class Event < ApplicationRecord
 
   private
 
-    # if event is ready to send to queue
-    # call scheduler functions
-    def check_if_ready
-      if(self.ready_to_send)
-        schedule_email_reminder
-        schedule_sms_reminder
-      end
-    end
-
     def schedule_email_reminder
       # if the event is a week or less away, send the
       # email immediately
-      if(self.start <= (DateTime.now + 1.week))
-        AppMailer.event_reminder(self, 'now').deliver
-      # if the event is more than a week away, schedule the
-      # email to one week prior to the event and
-      # one day prior to the event
-      else
-        AppMailer.event_reminder(self, 'week').deliver_later(wait_until: self.start - 1.week)
-        AppMailer.event_reminder(self, 'day').deliver_later(wait_until: self.start - 1.day)
+      if(self.ready_to_send)
+        if(self.start <= (DateTime.now + 1.week))
+          AppMailer.event_reminder(self, 'now').deliver
+        # if the event is more than a week away, schedule the
+        # email to one week prior to the event and
+        # one day prior to the event
+        else
+          AppMailer.event_reminder(self, 'week').deliver_later(wait_until: self.start - 1.week)
+          AppMailer.event_reminder(self, 'day').deliver_later(wait_until: self.start - 1.day)
+        end
       end
     end
 
     # schedule an SMS reminder using Twilio
     # use delayed_job to schedule the email
     def schedule_sms_reminder
-      @twilio_number = ENV['TWILIO_NUMBER']
-      @client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
-      @users = get_sms_list
-      @users.each do |user|
-        reminder = "DCB Reminder: Don't forget! #{self.title} on #{self.start.to_formatted_s(:long_ordinal)} at #{self.location}"
-        message = @client.account.messages.create(
-          :from => @twilio_number,
-          :to => user.phone,
-          :body => reminder,
-        )
+      if(self.ready_to_send)
+        @twilio_number = ENV['TWILIO_NUMBER']
+        @client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
+        @users = get_sms_list
+        @users.each do |user|
+          reminder = "DCB Reminder: Don't forget! #{self.title} on #{self.start.to_formatted_s(:long_ordinal)} at #{self.location}"
+          message = @client.account.messages.create(
+            :from => @twilio_number,
+            :to => user.phone,
+            :body => reminder,
+          )
+        end
       end
     end
 
