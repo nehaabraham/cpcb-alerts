@@ -8,7 +8,8 @@ class AppMailer < ApplicationMailer
     @event = event
     @users = get_email_list(event.category_id)
     @users = filter_subscribers(schedule)
-    mail(to: @users.pluck(:email),
+    mail(to: 'dcb@pitt.edu',
+        bcc: @users.pluck(:email),
         subject: "DCB Reminder: #{event.title}")
   end
 
