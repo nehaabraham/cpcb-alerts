@@ -7,67 +7,90 @@ class Event < ApplicationRecord
   validates :end, presence: true
   validates_datetime :start, :on_or_after => DateTime.now
   validates_datetime :end, :on_or_after => :start
-  after_save :schedule_email_reminder
-  after_save :schedule_sms_reminder
+  after_create :check_ready
 
 
-  def when_to_run
+  def run_one_day
     self.start - 1.day
+  end
+
+  def run_one_week
+    self.start - 1.week
   end
 
   private
 
-    def schedule_email_reminder
-      # if the event is a week or less away, send the
-      # email immediately
+    def check_ready
       if(self.ready_to_send)
-        if(self.start <= (DateTime.now + 1.week))
-          AppMailer.event_reminder(self, 'now').deliver
+        schedule_email_reminder
+        schedule_sms_reminder
+      end
+    end
+
+    def schedule_email_reminder
+
+      if(self.start <= (DateTime.now + 1.week))
+        # if the event a week away, send the email immediately
+        send_email_now
+      else
         # if the event is more than a week away, schedule the
         # email to one week prior to the event and
         # one day prior to the event
-        else
-          AppMailer.event_reminder(self, 'week').deliver_later(wait_until: self.start - 1.week)
-          AppMailer.event_reminder(self, 'day').deliver_later(wait_until: self.start - 1.day)
-        end
+        send_email_one_week
+        send_email_one_day
       end
+
     end
 
     # schedule an SMS reminder using Twilio
-    # use delayed_job to schedule the email
+    # use delayed_job to schedule the sms
     def schedule_sms_reminder
-      if(self.ready_to_send)
-        @twilio_number = ENV['TWILIO_NUMBER']
-        @client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
-        @users = get_sms_list
-        @users.each do |user|
-          reminder = "DCB Reminder: Don't forget! #{self.title} on #{self.start.to_formatted_s(:long_ordinal)} at #{self.location}"
-          message = @client.account.messages.create(
-            :from => @twilio_number,
-            :to => user.phone,
-            :body => reminder,
-          )
-        end
+      @twilio_number = ENV['TWILIO_NUMBER']
+      @client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
+      users = get_sms_list
+      users.each do |user|
+        reminder = "DCB Reminder: Don't forget! #{self.title} on #{self.start.to_formatted_s(:long_ordinal)} at #{self.location}"
+        message = @client.account.messages.create(
+          :from => @twilio_number,
+          :to => user.phone,
+          :body => reminder,
+        )
       end
-    end
 
-    handle_asynchronously :schedule_sms_reminder, :run_at => Proc.new { |i| i.when_to_run }
+    end
+    handle_asynchronously :schedule_sms_reminder, :run_at => Proc.new { |i| i.run_one_day }
 
     # get list of users to send sms based on
     # event category and subscription settings
     def get_sms_list
-      case self.category_id
-      when 1
-        @users = User.where(:subscribed_to_sms => true, :faculty_meetings => true)
-      when 2
-        @users = User.where(:subscribed_to_sms => true, :cpcb_seminars => true)
-      when 3
-        @users = User.where(:subscribed_to_sms => true, :miscellaneous => true)
-      when 4
-        @users = User.where(:subscribed_to_sms => true, :csb_seminars => true)
+      if(self.category_id == 1)
+        users = User.where(:subscribed_to_sms => true, :faculty_meetings => true)
+      elsif(self.category_id == 2)
+        users = User.where(:subscribed_to_sms => true, :cpcb_seminars => true)
+      elsif(self.category_id == 3)
+        users = User.where(:subscribed_to_sms => true, :miscellaneous => true)
+      elsif(self.category_id == 4)
+        users = User.where(:subscribed_to_sms => true, :csb_seminars => true)
       else
-        @users = User.all
+        users = User.all
       end
     end
+
+    # Email scheduling
+
+    def send_email_now
+      AppMailer.event_reminder(self, 0).deliver
+    end
+
+    def send_email_one_day
+      AppMailer.event_reminder(self, 1).deliver
+    end
+    handle_asynchronously :send_email_one_day, :run_at => Proc.new { |i| i.run_one_day }
+
+    def send_email_one_week
+      AppMailer.event_reminder(self, 2).deliver
+    end
+    handle_asynchronously :send_email_one_week, :run_at => Proc.new { |i| i.run_one_week }
+
 
 end
