@@ -3,8 +3,8 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    #@events = Event.where('start > ? ', DateTime.now).order('time ASC')
-    @events = Event.all.order(:start)
+    @events = Event.where('start > ? ', DateTime.now).order('start ASC')
+    #@events = Event.all.order(:start)
   end
 
   def show
