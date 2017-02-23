@@ -97,8 +97,6 @@ class Event < ApplicationRecord
     # Delete old jobs
     def delete_and_reschedule
       delete_jobs
-
-      # re-schedule jobs
       check_ready
     end
 
@@ -109,7 +107,7 @@ class Event < ApplicationRecord
         handler_string = job.handler #handler contains all event information
         temp_arr1 = handler_string.split("id: ") #isolate the event id, will be in temp_arr1[1]
         temp_arr2 = temp_arr1[1].split("\n") #remove trailing string
-        event_id = temp_arr2[0].to_i - 1 #off by one
+        event_id = temp_arr2[0].to_i
         if(self.id == event_id)
           job.destroy
         end
