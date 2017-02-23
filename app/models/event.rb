@@ -8,6 +8,7 @@ class Event < ApplicationRecord
   validates_datetime :start, :on_or_after => DateTime.now
   validates_datetime :end, :on_or_after => :start
   after_create :check_ready
+  after_update :delete_outdated_jobs
 
 
   def run_one_day
@@ -92,5 +93,22 @@ class Event < ApplicationRecord
     end
     handle_asynchronously :send_email_one_week, :run_at => Proc.new { |i| i.run_one_week }
 
+    # Delete old jobs
+    def delete_outdated_jobs
+      # Iterate through delayed_job table and find jobs for event, remove jobs and create new if ready_to_send
+
+      Delayed::Job.all.each do |job|
+        handler_string = job.handler #handler contains all event information
+        temp_arr1 = handler_string.split("id: ") #isolate the event id, will be in temp_arr1[1]
+        temp_arr2 = temp_arr1[1].split("\n") #remove trailing string
+        event_id = temp_arr2[0].to_i - 1 #off by one
+        if(self.id == event_id)
+          job.destroy
+        end
+      end
+
+      # re-schedule jobs
+      check_ready
+    end
 
 end

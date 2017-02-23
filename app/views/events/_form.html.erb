@@ -42,16 +42,10 @@
     <%= f.text_area :description, rows: 10 %>
   </div>
 
-  <% if !@event.ready_to_send? %>
   <div class="input-field" align="center">
     <%= f.check_box :ready_to_send %>
     <%= f.label :ready_to_send, "Ready to Send to Notification Queue" %>
   </div>
-  <% else %>
-  <div class="input-field" align="center">
-    An alert for this event has already been scheduled.
-  </div>
-  <% end %>
   <br />
 
   <div class="actions" align="center">
