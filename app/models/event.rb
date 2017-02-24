@@ -9,7 +9,7 @@ class Event < ApplicationRecord
   validates_datetime :end, :on_or_after => :start
   after_create :check_ready
   after_update :delete_and_reschedule
-  #before_destroy :delete_jobs
+  before_destroy :delete_jobs
 
 
   def run_one_day
