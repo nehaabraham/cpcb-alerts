@@ -15,7 +15,7 @@ Rails.application.configure do
   config.action_controller.perform_caching = true
 
   config.action_mailer.raise_delivery_errors = true
-  Rails.application.routes.default_url_options[:host] = 'cpcb-alerts.herokuapp.com'
+  Rails.application.routes.default_url_options[:host] = 'dcb-alerts.herokuapp.com'
   config.action_mailer.perform_deliveries = true
   config.action_mailer.perform_caching = false
   config.action_mailer.delivery_method = :smtp
