@@ -661,3 +661,2051 @@ Completed 200 OK in 71ms (Views: 64.8ms | ActiveRecord: 0.6ms)
   [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 2]]
   [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/" for ::1 at 2017-03-30 09:55:50 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Completed 401 Unauthorized in 63ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-03-30 09:55:50 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (78.3ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+  Rendered shared/_messages.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 650ms (Views: 598.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/" for ::1 at 2017-03-30 09:55:55 -0400
+Processing by UsersController#index as HTML
+[Devise] Could not find devise mapping for path "/users".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+AbstractController::ActionNotFound (Could not find devise mapping for path "/users".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+):
+  
+devise (4.2.0) app/controllers/devise_controller.rb:88:in `unknown_action!'
+devise (4.2.0) app/controllers/devise_controller.rb:63:in `assert_is_devise_resource!'
+activesupport (5.0.1) lib/active_support/callbacks.rb:382:in `block in make_lambda'
+activesupport (5.0.1) lib/active_support/callbacks.rb:169:in `block (2 levels) in halting'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.0.1) lib/active_support/callbacks.rb:170:in `block in halting'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `each'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+warden (1.2.6) lib/warden/manager.rb:35:in `block in call'
+warden (1.2.6) lib/warden/manager.rb:34:in `catch'
+warden (1.2.6) lib/warden/manager.rb:34:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout
+  Rendered /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.7ms)
+Started GET "/users/" for ::1 at 2017-03-30 09:56:05 -0400
+Processing by UsersController#index as HTML
+[Devise] Could not find devise mapping for path "/users".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+AbstractController::ActionNotFound (Could not find devise mapping for path "/users".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+):
+  
+devise (4.2.0) app/controllers/devise_controller.rb:88:in `unknown_action!'
+devise (4.2.0) app/controllers/devise_controller.rb:63:in `assert_is_devise_resource!'
+activesupport (5.0.1) lib/active_support/callbacks.rb:382:in `block in make_lambda'
+activesupport (5.0.1) lib/active_support/callbacks.rb:169:in `block (2 levels) in halting'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.0.1) lib/active_support/callbacks.rb:170:in `block in halting'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `each'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+warden (1.2.6) lib/warden/manager.rb:35:in `block in call'
+warden (1.2.6) lib/warden/manager.rb:34:in `catch'
+warden (1.2.6) lib/warden/manager.rb:34:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout
+  Rendered /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (1.1ms)
+Started GET "/users/" for ::1 at 2017-03-30 09:56:32 -0400
+Processing by UsersController#index as HTML
+[Devise] Could not find devise mapping for path "/users".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+AbstractController::ActionNotFound (Could not find devise mapping for path "/users".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+):
+  
+devise (4.2.0) app/controllers/devise_controller.rb:88:in `unknown_action!'
+devise (4.2.0) app/controllers/devise_controller.rb:63:in `assert_is_devise_resource!'
+activesupport (5.0.1) lib/active_support/callbacks.rb:382:in `block in make_lambda'
+activesupport (5.0.1) lib/active_support/callbacks.rb:169:in `block (2 levels) in halting'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.0.1) lib/active_support/callbacks.rb:170:in `block in halting'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `each'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+warden (1.2.6) lib/warden/manager.rb:35:in `block in call'
+warden (1.2.6) lib/warden/manager.rb:34:in `catch'
+warden (1.2.6) lib/warden/manager.rb:34:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout
+  Rendered /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.7ms)
+Started GET "/users/" for ::1 at 2017-03-30 09:57:40 -0400
+Processing by UsersController#index as HTML
+[Devise] Could not find devise mapping for path "/users".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+AbstractController::ActionNotFound (Could not find devise mapping for path "/users".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+):
+  
+devise (4.2.0) app/controllers/devise_controller.rb:88:in `unknown_action!'
+devise (4.2.0) app/controllers/devise_controller.rb:63:in `assert_is_devise_resource!'
+activesupport (5.0.1) lib/active_support/callbacks.rb:382:in `block in make_lambda'
+activesupport (5.0.1) lib/active_support/callbacks.rb:169:in `block (2 levels) in halting'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.0.1) lib/active_support/callbacks.rb:170:in `block in halting'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `each'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.1) lib/action_dispatch/routing/mapper.rb:16:in `block in <class:Constraints>'
+actionpack (5.0.1) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+warden (1.2.6) lib/warden/manager.rb:35:in `block in call'
+warden (1.2.6) lib/warden/manager.rb:34:in `catch'
+warden (1.2.6) lib/warden/manager.rb:34:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout
+  Rendered /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.6ms)
+Started GET "/users/" for ::1 at 2017-03-30 09:57:59 -0400
+Processing by UsersController#index as HTML
+[Devise] Could not find devise mapping for path "/users".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+AbstractController::ActionNotFound (Could not find devise mapping for path "/users".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+):
+  
+devise (4.2.0) app/controllers/devise_controller.rb:88:in `unknown_action!'
+devise (4.2.0) app/controllers/devise_controller.rb:63:in `assert_is_devise_resource!'
+activesupport (5.0.1) lib/active_support/callbacks.rb:382:in `block in make_lambda'
+activesupport (5.0.1) lib/active_support/callbacks.rb:169:in `block (2 levels) in halting'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.0.1) lib/active_support/callbacks.rb:170:in `block in halting'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `each'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.1) lib/action_dispatch/routing/mapper.rb:16:in `block in <class:Constraints>'
+actionpack (5.0.1) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+warden (1.2.6) lib/warden/manager.rb:35:in `block in call'
+warden (1.2.6) lib/warden/manager.rb:34:in `catch'
+warden (1.2.6) lib/warden/manager.rb:34:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout
+  Rendered /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.5ms)
+Started GET "/users/" for ::1 at 2017-03-30 09:58:13 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered collection of /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [35 times] (78.8ms)
+  Rendered /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (9.1ms)
+  Rendering /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (295.7ms)
+Started GET "/users/" for ::1 at 2017-03-30 09:58:29 -0400
+Processing by UsersController#index as HTML
+[Devise] Could not find devise mapping for path "/users".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+AbstractController::ActionNotFound (Could not find devise mapping for path "/users".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+):
+  
+devise (4.2.0) app/controllers/devise_controller.rb:88:in `unknown_action!'
+devise (4.2.0) app/controllers/devise_controller.rb:63:in `assert_is_devise_resource!'
+activesupport (5.0.1) lib/active_support/callbacks.rb:382:in `block in make_lambda'
+activesupport (5.0.1) lib/active_support/callbacks.rb:169:in `block (2 levels) in halting'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.0.1) lib/active_support/callbacks.rb:170:in `block in halting'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `each'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+warden (1.2.6) lib/warden/manager.rb:35:in `block in call'
+warden (1.2.6) lib/warden/manager.rb:34:in `catch'
+warden (1.2.6) lib/warden/manager.rb:34:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout
+  Rendered /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (1.0ms)
+Started GET "/users/" for ::1 at 2017-03-30 10:00:06 -0400
+Processing by UsersController#index as HTML
+[Devise] Could not find devise mapping for path "/users".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+AbstractController::ActionNotFound (Could not find devise mapping for path "/users".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+):
+  
+devise (4.2.0) app/controllers/devise_controller.rb:88:in `unknown_action!'
+devise (4.2.0) app/controllers/devise_controller.rb:63:in `assert_is_devise_resource!'
+activesupport (5.0.1) lib/active_support/callbacks.rb:382:in `block in make_lambda'
+activesupport (5.0.1) lib/active_support/callbacks.rb:169:in `block (2 levels) in halting'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.0.1) lib/active_support/callbacks.rb:170:in `block in halting'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `each'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+warden (1.2.6) lib/warden/manager.rb:35:in `block in call'
+warden (1.2.6) lib/warden/manager.rb:34:in `catch'
+warden (1.2.6) lib/warden/manager.rb:34:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout
+  Rendered /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.6ms)
+Started GET "/users/" for ::1 at 2017-03-30 10:00:10 -0400
+Processing by UsersController#index as HTML
+[Devise] Could not find devise mapping for path "/users".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+AbstractController::ActionNotFound (Could not find devise mapping for path "/users".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+):
+  
+devise (4.2.0) app/controllers/devise_controller.rb:88:in `unknown_action!'
+devise (4.2.0) app/controllers/devise_controller.rb:63:in `assert_is_devise_resource!'
+activesupport (5.0.1) lib/active_support/callbacks.rb:382:in `block in make_lambda'
+activesupport (5.0.1) lib/active_support/callbacks.rb:169:in `block (2 levels) in halting'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.0.1) lib/active_support/callbacks.rb:170:in `block in halting'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `each'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+warden (1.2.6) lib/warden/manager.rb:35:in `block in call'
+warden (1.2.6) lib/warden/manager.rb:34:in `catch'
+warden (1.2.6) lib/warden/manager.rb:34:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout
+  Rendered /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.5ms)
+Started GET "/users/" for ::1 at 2017-03-30 10:00:28 -0400
+Processing by UsersController#index as HTML
+[Devise] Could not find devise mapping for path "/users".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+AbstractController::ActionNotFound (Could not find devise mapping for path "/users".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+):
+  
+devise (4.2.0) app/controllers/devise_controller.rb:88:in `unknown_action!'
+devise (4.2.0) app/controllers/devise_controller.rb:63:in `assert_is_devise_resource!'
+activesupport (5.0.1) lib/active_support/callbacks.rb:382:in `block in make_lambda'
+activesupport (5.0.1) lib/active_support/callbacks.rb:169:in `block (2 levels) in halting'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.0.1) lib/active_support/callbacks.rb:170:in `block in halting'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `each'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+warden (1.2.6) lib/warden/manager.rb:35:in `block in call'
+warden (1.2.6) lib/warden/manager.rb:34:in `catch'
+warden (1.2.6) lib/warden/manager.rb:34:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout
+  Rendered /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.7ms)
+Started GET "/users/" for ::1 at 2017-03-30 10:01:23 -0400
+Processing by UsersController#index as HTML
+[Devise] Could not find devise mapping for path "/users".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+AbstractController::ActionNotFound (Could not find devise mapping for path "/users".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+):
+  
+devise (4.2.0) app/controllers/devise_controller.rb:88:in `unknown_action!'
+devise (4.2.0) app/controllers/devise_controller.rb:63:in `assert_is_devise_resource!'
+activesupport (5.0.1) lib/active_support/callbacks.rb:382:in `block in make_lambda'
+activesupport (5.0.1) lib/active_support/callbacks.rb:169:in `block (2 levels) in halting'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.0.1) lib/active_support/callbacks.rb:170:in `block in halting'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `each'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+warden (1.2.6) lib/warden/manager.rb:35:in `block in call'
+warden (1.2.6) lib/warden/manager.rb:34:in `catch'
+warden (1.2.6) lib/warden/manager.rb:34:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout
+  Rendered /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.5ms)
+Started GET "/users/" for ::1 at 2017-03-30 10:01:34 -0400
+Processing by UsersController#index as HTML
+[Devise] Could not find devise mapping for path "/users".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+AbstractController::ActionNotFound (Could not find devise mapping for path "/users".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+):
+  
+devise (4.2.0) app/controllers/devise_controller.rb:88:in `unknown_action!'
+devise (4.2.0) app/controllers/devise_controller.rb:63:in `assert_is_devise_resource!'
+activesupport (5.0.1) lib/active_support/callbacks.rb:382:in `block in make_lambda'
+activesupport (5.0.1) lib/active_support/callbacks.rb:169:in `block (2 levels) in halting'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.0.1) lib/active_support/callbacks.rb:170:in `block in halting'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `each'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+warden (1.2.6) lib/warden/manager.rb:35:in `block in call'
+warden (1.2.6) lib/warden/manager.rb:34:in `catch'
+warden (1.2.6) lib/warden/manager.rb:34:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout
+  Rendered /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.7ms)
+Started GET "/users/" for ::1 at 2017-03-30 10:01:41 -0400
+Processing by UsersController#index as HTML
+[Devise] Could not find devise mapping for path "/users".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+AbstractController::ActionNotFound (Could not find devise mapping for path "/users".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+):
+  
+devise (4.2.0) app/controllers/devise_controller.rb:88:in `unknown_action!'
+devise (4.2.0) app/controllers/devise_controller.rb:63:in `assert_is_devise_resource!'
+activesupport (5.0.1) lib/active_support/callbacks.rb:382:in `block in make_lambda'
+activesupport (5.0.1) lib/active_support/callbacks.rb:169:in `block (2 levels) in halting'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.0.1) lib/active_support/callbacks.rb:170:in `block in halting'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `each'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+warden (1.2.6) lib/warden/manager.rb:35:in `block in call'
+warden (1.2.6) lib/warden/manager.rb:34:in `catch'
+warden (1.2.6) lib/warden/manager.rb:34:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout
+  Rendered /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.6ms)
+Started GET "/users/" for ::1 at 2017-03-30 10:01:46 -0400
+Processing by UsersController#index as HTML
+[Devise] Could not find devise mapping for path "/users".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+AbstractController::ActionNotFound (Could not find devise mapping for path "/users".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+):
+  
+devise (4.2.0) app/controllers/devise_controller.rb:88:in `unknown_action!'
+devise (4.2.0) app/controllers/devise_controller.rb:63:in `assert_is_devise_resource!'
+activesupport (5.0.1) lib/active_support/callbacks.rb:382:in `block in make_lambda'
+activesupport (5.0.1) lib/active_support/callbacks.rb:169:in `block (2 levels) in halting'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.0.1) lib/active_support/callbacks.rb:170:in `block in halting'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `each'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+warden (1.2.6) lib/warden/manager.rb:35:in `block in call'
+warden (1.2.6) lib/warden/manager.rb:34:in `catch'
+warden (1.2.6) lib/warden/manager.rb:34:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout
+  Rendered /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.6ms)
+Started GET "/users/" for ::1 at 2017-03-30 10:04:47 -0400
+Processing by UsersController#index as HTML
+[Devise] Could not find devise mapping for path "/users".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+AbstractController::ActionNotFound (Could not find devise mapping for path "/users".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+):
+  
+devise (4.2.0) app/controllers/devise_controller.rb:88:in `unknown_action!'
+devise (4.2.0) app/controllers/devise_controller.rb:63:in `assert_is_devise_resource!'
+activesupport (5.0.1) lib/active_support/callbacks.rb:382:in `block in make_lambda'
+activesupport (5.0.1) lib/active_support/callbacks.rb:169:in `block (2 levels) in halting'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.0.1) lib/active_support/callbacks.rb:170:in `block in halting'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `each'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+warden (1.2.6) lib/warden/manager.rb:35:in `block in call'
+warden (1.2.6) lib/warden/manager.rb:34:in `catch'
+warden (1.2.6) lib/warden/manager.rb:34:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout
+  Rendered /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.6ms)
+Started GET "/users/" for ::1 at 2017-03-30 10:04:51 -0400
+Processing by UsersController#index as HTML
+[Devise] Could not find devise mapping for path "/users".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+AbstractController::ActionNotFound (Could not find devise mapping for path "/users".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+):
+  
+devise (4.2.0) app/controllers/devise_controller.rb:88:in `unknown_action!'
+devise (4.2.0) app/controllers/devise_controller.rb:63:in `assert_is_devise_resource!'
+activesupport (5.0.1) lib/active_support/callbacks.rb:382:in `block in make_lambda'
+activesupport (5.0.1) lib/active_support/callbacks.rb:169:in `block (2 levels) in halting'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.0.1) lib/active_support/callbacks.rb:170:in `block in halting'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `each'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+warden (1.2.6) lib/warden/manager.rb:35:in `block in call'
+warden (1.2.6) lib/warden/manager.rb:34:in `catch'
+warden (1.2.6) lib/warden/manager.rb:34:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout
+  Rendered /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.6ms)
+Started GET "/users/" for ::1 at 2017-03-30 10:05:27 -0400
+Processing by UsersController#index as HTML
+[Devise] Could not find devise mapping for path "/users".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+AbstractController::ActionNotFound (Could not find devise mapping for path "/users".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+):
+  
+devise (4.2.0) app/controllers/devise_controller.rb:88:in `unknown_action!'
+devise (4.2.0) app/controllers/devise_controller.rb:63:in `assert_is_devise_resource!'
+activesupport (5.0.1) lib/active_support/callbacks.rb:382:in `block in make_lambda'
+activesupport (5.0.1) lib/active_support/callbacks.rb:169:in `block (2 levels) in halting'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.0.1) lib/active_support/callbacks.rb:170:in `block in halting'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `each'
+activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+warden (1.2.6) lib/warden/manager.rb:35:in `block in call'
+warden (1.2.6) lib/warden/manager.rb:34:in `catch'
+warden (1.2.6) lib/warden/manager.rb:34:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout
+  Rendered /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.9ms)
+Started GET "/users/" for ::1 at 2017-03-30 10:06:09 -0400
+  
+RuntimeError (Circular dependency detected while autoloading constant UsersController):
+  
+app/controllers/users_controller.rb:1:in `<top (required)>'
+  Rendering /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.3ms)
+  Rendering /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendering /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (164.6ms)
+Started GET "/users/" for ::1 at 2017-03-30 10:07:35 -0400
+  
+RuntimeError (Circular dependency detected while autoloading constant UsersController):
+  
+app/controllers/users_controller.rb:1:in `<top (required)>'
+  Rendering /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.6ms)
+  Rendering /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendering /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (196.6ms)
+Started GET "/users/" for ::1 at 2017-03-30 10:09:33 -0400
+  
+RuntimeError (Circular dependency detected while autoloading constant UsersController):
+  
+app/controllers/users_controller.rb:1:in `<top (required)>'
+  Rendering /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.7ms)
+  Rendering /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (180.1ms)
+Started GET "/users/" for ::1 at 2017-03-30 10:10:58 -0400
+  
+ActionController::RoutingError (uninitialized constant UsersController):
+  
+activesupport (5.0.1) lib/active_support/inflector/methods.rb:268:in `const_get'
+activesupport (5.0.1) lib/active_support/inflector/methods.rb:268:in `block in constantize'
+activesupport (5.0.1) lib/active_support/inflector/methods.rb:266:in `each'
+activesupport (5.0.1) lib/active_support/inflector/methods.rb:266:in `inject'
+activesupport (5.0.1) lib/active_support/inflector/methods.rb:266:in `constantize'
+actionpack (5.0.1) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:44:in `controller'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:30:in `serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+warden (1.2.6) lib/warden/manager.rb:35:in `block in call'
+warden (1.2.6) lib/warden/manager.rb:34:in `catch'
+warden (1.2.6) lib/warden/manager.rb:34:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered collection of /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [44 times] (21.4ms)
+  Rendered /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.1ms)
+  Rendering /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /Users/nea24/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (248.7ms)
+Started GET "/users/" for ::1 at 2017-03-30 10:11:09 -0400
+Processing by EventsController#index as HTML
+Completed 401 Unauthorized in 12ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-03-30 10:11:10 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (13.5ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+  Rendered shared/_messages.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 206ms (Views: 171.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2017-03-30 10:11:14 -0400
+Processing by RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (14.4ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+  Rendered shared/_messages.html.erb (5.6ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 146ms (Views: 144.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2017-03-30 10:11:24 -0400
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"G7CJ27xVTv8iiIYBgNFSXqH8EbduMp3c/kGUX2WJyE/6qzTXY4Stiy8nkCSN51xQkY1ZMPinLU8PY5IgAHohGA==", "user"=>{"email"=>"test17@pitt.edu", "phone"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test17@pitt.edu"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "phone", "confirmation_token", "confirmation_sent_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "test17@pitt.edu"], ["encrypted_password", "$2a$11$lIVBQsFZzEF3Eg2TTtF6WOvQ5tV3XeRH7PfrVrkScXYf5PMX0km6S"], ["created_at", 2017-03-30 10:11:24 -0400], ["updated_at", 2017-03-30 10:11:24 -0400], ["phone", ""], ["confirmation_token", "MYCwxKn8nqr5szqQtC_-"], ["confirmation_sent_at", 2017-03-30 10:11:24 -0400]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (1.1ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 383.8ms
+Sent mail to test17@pitt.edu (70.3ms)
+Date: Thu, 30 Mar 2017 10:11:25 -0400
+From: dcb@pitt.edu
+Reply-To: dcb@pitt.edu
+To: test17@pitt.edu
+Message-ID: <58dd120d2e665_8bce3fc44a5acd70390e6@compbio-imac-4.csb.pitt.edu.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome to DCB Alerts!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=MYCwxKn8nqr5szqQtC_-">Confirm my account</a></p>
+
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", 2017-03-30 10:11:25 -0400], ["last_sign_in_at", 2017-03-30 10:11:25 -0400], ["current_sign_in_ip", "::1"], ["last_sign_in_ip", "::1"], ["updated_at", 2017-03-30 10:11:25 -0400], ["id", 4]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/events
+Completed 302 Found in 948ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/events" for ::1 at 2017-03-30 10:11:25 -0400
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (start > '2017-03-30 10:11:25.329236' ) ORDER BY start ASC[0m
+  Rendered events/index.html.erb within layouts/application (3.6ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+  Rendered shared/_messages.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 129ms (Views: 78.3ms | ActiveRecord: 0.9ms)
+
+
