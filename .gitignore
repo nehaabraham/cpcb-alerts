@@ -16,6 +16,8 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+tmp/*
+log/*
 
 cpcb-alerts-be7ca0003e02.json
 
